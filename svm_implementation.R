@@ -66,7 +66,6 @@ cm_radial = table(mfcc.test[, 25], y_pred_radial)
 
 print(cm_radial)
 
-cm_radial= confusionMatrix(mfcc.test[, 25], y_pred_radial)
+cm_radial1= confusionMatrix(mfcc.test[, 25], y_pred_radial)
 
 
-confusionMatrix(mfcc.test[, 25], y_pred)
