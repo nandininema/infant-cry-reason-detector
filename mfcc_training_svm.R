@@ -10,7 +10,7 @@ library(stringr)
 
 vec <- NULL
 
-wavPath ="F:/mid eval minor 2018/training_wav"
+wavPath ="path of folder containing wav files"
 wavFiles = list.files(wavPath, pattern=glob2rx('*.wav'), full.names=TRUE)
 
 
@@ -22,8 +22,8 @@ for(i in 1:433)
   
   meli <- melfcc(w,numcep=12)
   df <- data.frame(meli)
-  
-  write.table(df, file = paste("F:/mid eval minor 2018/mfcc_train_svm/mfcc_train" , as.numeric(i) , ".csv",sep=''),
+  #writing extracted mfcc of current wav  file as (some name)i to csv file  
+  write.table(df, file = paste("some name" , as.numeric(i) , ".csv",sep=''),
               row.names = FALSE,  na="",col.names=TRUE, sep=",")
   
   df= NULL
@@ -64,7 +64,8 @@ for(i in 1:433)
 }
 
 labe <- data.frame(vec)
-write.table(labe, file = paste("F:/mid eval minor 2018/training_dataset_svm/training_labels.csv"),
+    #storing labels as training.csv
+write.table(labe, file = paste("training_labels.csv"),
             row.names = FALSE,  na="",col.names=TRUE, sep=",")
 
 
