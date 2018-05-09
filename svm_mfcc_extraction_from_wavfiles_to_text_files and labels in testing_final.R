@@ -8,22 +8,16 @@ library(stringr)
 library(ggplot2)
 library(viridis)
 library(plyr)
-##### Download all required files into a single location on your desktop
-##### Use find and replace function to change /Users/denasmacbook/Desktop/MFCC-Vocal-Fingerprinting-master 
-##### to local file location
 
-
-##### Part 1 Two methods of MFCC feature extraction: averaging across all time windows
-##### and creating a standardized number of time windows for each call
 
 
 ##### Save all .wav files and set working directory to access the files
-##### There are nine .wav files, three from three different females (SAFA, SAFBA and VJRN_01)
-setwd("F:\\mid eval minor 2018\\testing_wav")
+
+setwd("")
 
 ####Set the input directory to loop over the wave files
 input.dir <-
-  "F:\\mid eval minor 2018\\testing_wav"
+  ""
 
 ####List all .wav files in directory
 L = list.files(input.dir, pattern = "*.wav", full.names = FALSE)
@@ -148,7 +142,7 @@ mfcc.data.all <-
 
 str(mfcc.data.all)
 
-write.table(mfcc.data.all, file = paste("F:\\mid eval minor 2018\\testing_dataset_svm\\test_mean_and_sd_of_coff.csv"),
+write.table(mfcc.data.all, file = paste(""),
             row.names = FALSE,  na="",col.names=TRUE, sep=",")
 
 
