@@ -141,7 +141,7 @@ mfcc.data.all <-
   cbind.data.frame(data.matrix.all, loc, filehandles)
 
 str(mfcc.data.all)
-#writing testing data to cav file
+#writing testing data to csv file
 write.table(mfcc.data.all, file = paste(""),
             row.names = FALSE,  na="",col.names=TRUE, sep=",")
 
