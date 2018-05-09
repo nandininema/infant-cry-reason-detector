@@ -5,12 +5,12 @@ library(caret)
 
 #assigning numbers to labels
 
-mfcc.train <- read.csv("F:\\mid eval minor 2018\\training_dataset_svm\\train_mean_and_sd_of_coff.csv")
+mfcc.train <- read.csv("Filename")
 mfcc.train <- mfcc.train[,1:25]
 mfcc.train[,1:24] = (mfcc.train[,1:24]- min(mfcc.train[,1:24]))/(max(mfcc.train[,1:24])-min(mfcc.train[,1:24]))
 
 
-mfcc.test <- read.csv("F:\\mid eval minor 2018\\testing_dataset_svm\\test_mean_and_sd_of_coff.csv")
+mfcc.test <- read.csv("filename")
 mfcc.test <- mfcc.test[,1:25]
 mfcc.test[,1:24] = (mfcc.test[,1:24]- min(mfcc.test[,1:24]))/(max(mfcc.test[,1:24])-min(mfcc.test[,1:24]))
 
@@ -24,7 +24,7 @@ classifier_linear = svm(formula = mfcc.train$loc ~ .,
 # Predicting the Test set results
 y_pred_linear = predict(classifier_linear, newdata = mfcc.test[-25])
 
-cm_linear = table(mfcc.test[, 25], y_pred)
+cm_linear = table(mfcc.test[, 25], y_pred_linear)
 print(cm_linear)
 
 
@@ -37,7 +37,7 @@ classifier_polynomial = svm(formula = mfcc.train$loc ~ .,
 # Predicting the Test set results
 y_pred_polynomial = predict(classifier_polynomial, newdata = mfcc.test[-25])
 
-cm_polynomial = table(mfcc.test[, 25], y_pred)
+cm_polynomial = table(mfcc.test[, 25], y_pred__polynomial)
 print(cm_polynomial)
 
 cm_poly = confusionMatrix(mfcc.test[, 25], y_pred_polynomial)
@@ -49,7 +49,7 @@ classifier_sigmoid = svm(formula = mfcc.train$loc ~ .,
 # Predicting the Test set results
 y_pred_sigmoid = predict(classifier_sigmoid, newdata = mfcc.test[-25])
 
-cm_sigmoid = table(mfcc.test[, 25], y_pred)
+cm_sigmoid = table(mfcc.test[, 25], y_pred__sigmoid )
 print(cm_sigmoid)
 cm_sigmoid = confusionMatrix(mfcc.test[, 25], y_pred_sigmoid)
 
@@ -62,7 +62,7 @@ classifier_radial = svm(formula = mfcc.train$loc ~ .,
 y_pred_radial = predict(classifier_radial, newdata = mfcc.test[-25])
 
 model_c= classifier_radial 
-cm_radial = table(mfcc.test[, 25], y_pred)
+cm_radial = table(mfcc.test[, 25], y_pred_radial)
 
 print(cm_radial)
 
